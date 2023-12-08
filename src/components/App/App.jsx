@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <p>Hola Mundo Pokedesk Prueba Github</p>
+      <p>Hola Mundo Pokedes</p>
     </>
   )
 }
