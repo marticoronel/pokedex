@@ -2,14 +2,46 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.header__pokeball__icon {
-    height: .5rem;
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 0 20px 0;
+
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.btn {
+    background: none;
+    border: none;
+}
+
+.btn__title {
+    margin: 0 20px;
+}
+
+.pokeball {
+    height: 2rem;
+    margin: 0 20px;
 }
 
 .input {
-    border: none;
-    outline: none;
-    width: 100%;
-    font-size: 1.1rem;
-    background-color: aqua;
+    border: 1px solid lightgray;
+    outline: 5px;
+    border-radius: 5px;
+    height: 30px;
+    width: 98%;
+    margin: 0 1.25%;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+input::placeholder {
+    background: 
 }

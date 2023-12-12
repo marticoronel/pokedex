@@ -1,0 +1,45 @@
+.pokemonList {
+    margin-top: 20px;
+    margin-left: 7.5px;
+    display: grid;
+    grid-template-columns: repeat(3, 0.8fr);
+    row-gap: 10px;    
+    list-style: none;
+    align-content: center;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    color: white;
+}
+
+.pokemonIcon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 15px;
+    width: 130px;
+    height: 130px;
+    position: relative;
+}
+
+.idNumber {
+    margin: 5px 0 0 70px;
+    color: #b7b9d0;
+    font-size: 0.65rem;
+}
+
+p {
+    padding-top: 2.5px;
+}
+
+.pokemonPic {
+    scale: 1.25;
+    position: absolute;
+}
+
+.pokemonName {
+    scale: 1.25;
+    position: absolute;
+    padding-top: 90px;
+    font-size: 0.65rem;
+}

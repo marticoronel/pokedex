@@ -1,6 +1,5 @@
 import Header from '../Header/index'
 import Pokelist from '../PokeList/index'
-import PokeCard from '../PokeCard'
 import styles from './styles.module.css'
 
 function App() {
@@ -9,7 +8,6 @@ function App() {
     <>
     <Header />
     <Pokelist />
-    <PokeCard />
     </>
   )
 }
