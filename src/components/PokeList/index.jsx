@@ -9,7 +9,7 @@ export default function PokemonList() {
         const fetchData = async () => {
             try {
                 setLoading(true);
-                const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=63");
+                const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=9");
                 const data = await response.json();
 
                 const dataPokedexPromises = data.results.map(async (pokemon) => {
@@ -82,8 +82,6 @@ export default function PokemonList() {
                                     src={pokemon.img}
                                     alt={pokemon.name}
                                     className={styles.pokemonPic}
-                                    width={50}
-                                    height={50}
                                 />
                                 <p className={styles.pokemonName}>{pokemon.name}</p>
                             </li>

@@ -1,0 +1,10 @@
+.btnType {
+    width: 30px;
+    height: 16px;
+    display: flex;
+    padding: 2px 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px;
+    background-color: #FF5733;
+}
