@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
 
-navigate("/new-route", { state: { key: "value" } });
+// navigate("/new-route", { state: { key: "value" } });
 
 
 export default function PokemonList({ data, loading, colors }) {
