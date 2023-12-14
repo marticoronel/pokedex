@@ -5,7 +5,7 @@
     background-position-x: 90%;
     background-position-y: 4%;
     display: flex;
-    width: 360px;
+    width: 100vw;
     height: 640px;
     padding: 4px;
     flex-direction: column;
