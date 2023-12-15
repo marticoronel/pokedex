@@ -2,18 +2,14 @@ import styles from './styles.module.css';
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
-
-// navigate("/new-route", { state: { key: "value" } });
-
-
 export default function PokemonList({ data, loading, colors }) {
+  const navigate = useNavigate();
   return (
     <div>
       {loading ? (
         <p>Loading...</p>
       ) : (
         <ul>
-          <Link to="/pokemon">
           <div className={styles.pokemonList}>
             {data.map((pokemon, index) => (
               <li
@@ -23,6 +19,7 @@ export default function PokemonList({ data, loading, colors }) {
                   borderColor: colors[pokemon.name],
                   background: `linear-gradient(to bottom, white 10% 75%, ${colors[pokemon.name]} 75%)`,
                 }}
+                onClick ={() => navigate("/pokemon", { state: pokemon })}
               >
                 <p className={styles.idNumber}>#{String(index + 1).padStart(3, '0')}</p>
                 <img
@@ -34,7 +31,6 @@ export default function PokemonList({ data, loading, colors }) {
               </li>
             ))}
           </div>
-          </Link>
         </ul>
       )}
     </div>

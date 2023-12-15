@@ -1,9 +1,12 @@
 import React from 'react'
 import styles from './styles.module.css';
 import PokemonType from '../PokemonType/index'
+import { useLocation } from 'react-router-dom';
+
 
 
 export default function PokeCard() {
+    const location = useLocation();
     return (
         <>
             <div
@@ -31,8 +34,8 @@ export default function PokeCard() {
                             </filter>
                         </defs>
                     </svg>
-                    <h1 className={styles.pokemonName}>Pokemon</h1>
-                    <h1 className={styles.pokemonId}>#000</h1>
+                    <h1 className={styles.pokemonName}>{location.state.name}</h1>
+                    <h1 className={styles.pokemonId}>#{String(location.state.id).padStart(3, '0') }</h1>   
                 </div>
                 <div className={styles.imageSection}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
