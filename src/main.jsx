@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/pokemon",
+    path: "/pokemon/:id",
     element: <PokeCard />,
   },
 ]);

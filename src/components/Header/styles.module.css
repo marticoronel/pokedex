@@ -18,12 +18,37 @@ body {
 }
 
 .btn {
-    background: none;
+    background: gainsboro;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
     border: none;
+    align-items: center;
+    padding-top: 5px;
+    
+}
+
+.arrowDown {
+}
+
+.btnNumeral {
+  display: block;
+  padding-right: 10px;
+  color: lightgray;
+}
+
+.btnAlfabetico {
+  display: none;
+  padding-right: 10px;
+  color: lightgray;
 }
 
 .btn__title {
+    display: flex;
+    align-items: center;
     margin: 0 20px;
+    border: none;
+    background-color: #f7f7f7;
 }
 
 .pokeball {

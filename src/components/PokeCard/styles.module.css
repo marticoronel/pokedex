@@ -1,23 +1,27 @@
 .backgroundCard {
-    background-color: #FF5733;
+    display: flex;
+    width: 352px;
+    height: 632px;
+    padding: 4px;
+    flex-direction: column;
+    align-items: flex-start;
     background-image: url(../../public/icons/Pokeball.svg);
     background-repeat: no-repeat;
     background-position-x: 90%;
     background-position-y: 4%;
-    display: flex;
-    width: 100vw;
-    height: 640px;
-    padding: 4px;
-    flex-direction: column;
-    align-items: flex-start;
 }
 
 .header {
     display: flex;
-    padding: 20px 20px 24px 20px;
+    flex-direction: row;
     align-items: center;
-    gap: 8px;
-    align-self: stretch;
+    padding: 15px 10px;
+    text-decoration: none;
+    width: 352px;
+}
+
+.icons {
+    margin-right: 5px;
 }
 
 .pokemonName {
@@ -26,7 +30,8 @@
     font-style: normal;
     font-weight: 700;
     line-height: 32px;
-    margin-right: 100px;
+    margin-right: 10px;
+    text-transform: capitalize;
 }
 
 .pokemonId {
@@ -35,6 +40,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 16px;
+    margin-right: 10px;
 }
 
 .imageSection {
@@ -71,16 +77,26 @@
 }
 
 .pokemonTypes {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 16px;
-    align-self: stretch;
+    width: auto;
+    height: 20px;
+    align-self:center;
+    text-align: center;
+    padding: 0 10px 5px 10px;
+    border-radius: 10px;
+}
+
+.pokemonTypesText {
+    color: #f7f7f7;
+    font-family: Poppins;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px; 
+    text-transform: capitalize;
 }
 
 .h1 {
     align-self: stretch;
-    color: var(--pokmon-type-grass, #FF5733);
     text-align: center;
     font-size: 14px;
     font-style: normal;
@@ -95,8 +111,8 @@
     flex-direction: row;
     align-items: end;
     justify-content: space-between;
-    gap: 70px;
-    width: 310px;
+    gap: 15px;
+    width: auto;
 }
 
 .features_weight {
@@ -105,6 +121,9 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    border-right: 1px solid grey;
+    border-collapse: separate;
+    padding-right: 15px;
 }
 
 .features_weightInfo {
@@ -112,7 +131,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    width: 70px;
+}
+
+.features_weightImg {
+    margin-right: 10px;
 }
 
 .features_subTitle {
@@ -125,6 +148,9 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    border-right: 1px solid grey;
+    border-collapse: separate;
+    padding-right: 15px;
 }
 
 .features_heightInfo {
@@ -132,7 +158,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    width: 70px;
+}
+
+.features_heightImg {
+    margin-right: 10px;
 }
 
 .features_moves {
@@ -140,22 +170,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-}
-
-.features_heightInfo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    width: 100px;
 }
 
 .features_movesInfo {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    list-style: none;
 }
 
 .description {
@@ -166,16 +189,21 @@
 .pokemonSkills {
     display: flex;
     flex-direction: row;
+    position: relative;
+    right: 180px;
 }
 
 .abilities {
-    color: var(--pokmon-type-grass, #FF5733);
     font-weight: 700;
-    margin-right: 30px;
+    margin-right: 20px;
     list-style: none;
     font-size: 0.65rem;
     line-height: 1.1rem;
-
+    width: 280px;
+    text-align: end;
+    border-right: 1px solid grey;
+    border-collapse: separate;
+    padding-right: 20px;
 }
 
 .abilitiesValue {
@@ -184,8 +212,16 @@
     line-height: 1.1rem;
     margin-right: 20px;
 
+
 }
 
 .progressBar {
     line-height: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    height: 12px;
+    margin-top: 5px;
+
 }
+
+

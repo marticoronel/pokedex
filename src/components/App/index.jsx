@@ -1,14 +1,36 @@
 import React, { useState, useEffect } from "react";
-
-import Header from '../Header/index'
-import Pokelist from '../PokeList/index'
-import PokeCard from '../PokeCard/index'
-import styles from './styles.module.css'
+import { useNavigate } from 'react-router-dom';
+import Header from '../Header/index';
+import Pokelist from '../PokeList/index';
+import styles from './styles.module.css';
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [pokemonList, setPokemonList] = useState([]);
   const [pokemonColors, setPokemonColors] = useState({});
+  const [isSortedAlphabetically, setIsSortedAlphabetically] = useState(false);
+  const navigate = useNavigate();
+  const [filteredPokemon, setFilteredPokemon] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+
+  const handleSortAlphabetically = () => {
+    const sortedList = [...pokemonList].sort((a, b) => {
+      if (isSortedAlphabetically) {
+        return a.name.localeCompare(b.name);
+      } else {
+        return a.id - b.id;
+      }
+    });
+    setPokemonList(sortedList);
+    setIsSortedAlphabetically(!isSortedAlphabetically);
+  };
+
+  const handleInputChange = (event) => {
+    const value = event.target.value;
+    setInputValue(value);
+    const filtered = pokemonList.filter(item => item.name.includes(value));
+    setFilteredPokemon(filtered);
+  };
 
   const typeColors = {
     rock: "#B69E31",
@@ -39,7 +61,7 @@ function App() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=180");
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=33");
         const data = await response.json();
 
         const dataPokedexPromises = data.results.map(async (pokemon) => {
@@ -49,6 +71,7 @@ function App() {
             id: data.id,
             name: data.name,
             types: data.types.map((type) => type.type.name),
+            color: getPokemonColor(data.types[0].type.name),
             img: data.sprites.other['official-artwork'].front_default,
           };
         });
@@ -61,7 +84,6 @@ function App() {
           colors[pokemon.name] = getPokemonColor(pokemon.types[0]);
         });
         setPokemonColors(colors);
-
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -74,9 +96,10 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Pokelist data={pokemonList} colors={pokemonColors} loading={loading} />
-    </>
+      <Header handleSortAlphabetically={handleSortAlphabetically} isSortedAlphabetically={isSortedAlphabetically} handleInputChange={handleInputChange} />
+      <Pokelist data={filteredPokemon.length > 0 ? filteredPokemon : pokemonList} colors={pokemonColors} loading={loading}
+    />
+=    </>
   );
 }
 

@@ -1,9 +1,11 @@
+// PokemonList.jsx
+import React from 'react';
 import styles from './styles.module.css';
-import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
-export default function PokemonList({ data, loading, colors }) {
+export default function PokemonList({ data, loading, colors,  }) {
   const navigate = useNavigate();
+
   return (
     <div>
       {loading ? (
@@ -19,9 +21,9 @@ export default function PokemonList({ data, loading, colors }) {
                   borderColor: colors[pokemon.name],
                   background: `linear-gradient(to bottom, white 10% 75%, ${colors[pokemon.name]} 75%)`,
                 }}
-                onClick ={() => navigate("/pokemon", { state: pokemon })}
+                onClick={() => navigate(`/pokemon/${pokemon.id}`)}
               >
-                <p className={styles.idNumber}>#{String(index + 1).padStart(3, '0')}</p>
+                <p className={styles.idNumber}>#{String(pokemon.id).padStart(3, '0')}</p>
                 <img
                   src={pokemon.img}
                   alt={pokemon.name}
@@ -36,6 +38,3 @@ export default function PokemonList({ data, loading, colors }) {
     </div>
   );
 }
-
-
-
