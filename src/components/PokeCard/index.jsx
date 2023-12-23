@@ -8,7 +8,7 @@ import chevron_left from '/public/icons/chevron_left.png';
 import chevron_right from '/public/icons/chevron_right.png';
 import Weight from '/public/icons/Weight.svg';
 import Height from '/public/icons/Height.svg';
-import pokeBackGround from '/public/icons/Pokeball.svg'
+import pokeBackGround from '/public/icons/Pokeball.png'
 
 
 export default function PokeCard() {
