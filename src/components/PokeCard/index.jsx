@@ -3,6 +3,13 @@ import styles from './styles.module.css';
 import { useLocation, Link, useParams, useNavigate } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
 
+import arrow_back from '/public/icons/arrow_back.png';
+import chevron_left from '/public/icons/chevron_left.png';
+import chevron_right from '/public/icons/chevron_right.png';
+import Weight from '/public/icons/Weight.svg';
+import Height from '/public/icons/Height.svg';
+
+
 export default function PokeCard() {
 
     const config = {
@@ -93,15 +100,15 @@ export default function PokeCard() {
                 >
                     <div className={styles.header}>
                         <div className={styles.header}>
-                            <img onClick={() => navigate('/')} src="../../public/icons/arrow_back.png" alt="" />
-                            <h1 className={styles.pokemonName} onClick={() => navigate('/')} src="../../public/icons/arrow_back.png" alt="" >{pokemon.name}</h1>
+                            <img onClick={() => navigate('/')} src={arrow_back} alt="" />
+                            <h1 className={styles.pokemonName} onClick={() => navigate('/')} src={arrow_back} alt="" >{pokemon.name}</h1>
                         </div>
                         <h1 className={styles.pokemonId}>#{String(pokemon.id).padStart(3, '0')}</h1>
                     </div>
                     <div className={styles.imageSection}>
                         <img
                             onClick={() => pokemon.id >= 1 && navigate(`/pokemon/${prevPokemonId >= 1 ? prevPokemonId : 1}`)}
-                            src="../../public/icons/chevron_left.png"
+                            src={chevron_left}
                             alt="Previous Pokemon"
                         />
                         <img
@@ -111,7 +118,7 @@ export default function PokeCard() {
                         />
                         <img
                             onClick={() => pokemon.id >= 1 && navigate(`/pokemon/${nextPokemonId}`)}
-                            src="../../public/icons/chevron_right.png"
+                            src={chevron_right}
                             alt="Next Pokemon"
                         />
 
@@ -127,14 +134,14 @@ export default function PokeCard() {
                         <div className={styles.features}>
                             <div className={styles.features_weight}>
                                 <div className={styles.features_weightInfo}>
-                                    <img className={styles.features_weightImg} src="../../public/icons/Weight.svg" alt="" />
+                                    <img className={styles.features_weightImg} src={Weight} alt="" />
                                     <p>{pokemon.weight / 10} Kg</p>
                                 </div>
                                 <p className={styles.features_subTitle}>Weight</p>
                             </div>
                             <div className={styles.features_height}>
                                 <div className={styles.features_heightInfo}>
-                                    <img className={styles.features_heightImg} src="../../public/icons/Height.svg" alt="" />
+                                    <img className={styles.features_heightImg} src={Height} alt="" />
                                     <p>{pokemon.height / 10} m</p>
                                 </div>
                                 <p className={styles.features_subTitle}> Height</p>

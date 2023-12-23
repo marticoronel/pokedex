@@ -1,6 +1,8 @@
 import styles from './styles.module.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import pokeball from "/public/icons/Pokeball.png"
+
 
 export default function Header({ handleSortAlphabetically, isSortedAlphabetically, handleInputChange }) {
     const navigate = useNavigate();
@@ -9,7 +11,7 @@ export default function Header({ handleSortAlphabetically, isSortedAlphabeticall
         <div>
             <div className={styles.header}>
                 <div className={styles.title}>
-                    <img className={styles.pokeball} src="../../public/icons/Pokeball.png" alt="icono pokeball" />
+                    <img className={styles.pokeball} src={pokeball} />
                     <h1>Pokédex</h1>
                 </div>
                 <div className={styles.btn__title}>
