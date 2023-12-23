@@ -11,8 +11,7 @@ export default function PokemonList({ data, loading, colors,  }) {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <ul>
-          <div className={styles.pokemonList}>
+        <ul className={styles.pokemonList}>
             {data.map((pokemon, index) => (
               <li
                 key={index}
@@ -32,7 +31,6 @@ export default function PokemonList({ data, loading, colors,  }) {
                 <p className={styles.pokemonName}>{pokemon.name}</p>
               </li>
             ))}
-          </div>
         </ul>
       )}
     </div>

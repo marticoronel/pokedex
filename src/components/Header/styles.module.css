@@ -1,14 +1,15 @@
 body {
     font-family: 'Poppins', sans-serif;
+    align-items: start;
 }
 
 .header {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    width: 100vw;
     margin: 40px 0 20px 0;
-
 }
 
 .title {
@@ -25,10 +26,7 @@ body {
     border: none;
     align-items: center;
     padding-top: 5px;
-    
-}
-
-.arrowDown {
+    margin-top: 7px;
 }
 
 .btnNumeral {
@@ -62,11 +60,8 @@ body {
     border-radius: 5px;
     height: 30px;
     width: 98%;
-    margin: 0 1.25%;
+    margin: 0 1.25% 0 10px;
     font-size: 0.8rem;
     text-align: center;
 }
 
-input::placeholder {
-    background: 
-}

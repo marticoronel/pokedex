@@ -2,3 +2,9 @@ body {
     background-color: #f7f7f7;
     font-family: 'Poppins', sans-serif;
 }
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }

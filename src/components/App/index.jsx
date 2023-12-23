@@ -13,17 +13,21 @@ function App() {
   const [filteredPokemon, setFilteredPokemon] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
+
   const handleSortAlphabetically = () => {
-    const sortedList = [...pokemonList].sort((a, b) => {
-      if (isSortedAlphabetically) {
-        return a.name.localeCompare(b.name);
-      } else {
-        return a.id - b.id;
-      }
-    });
+    const sortedList = [...pokemonList].sort((a, b) => (
+      isSortedAlphabetically ? a.name.localeCompare(b.name) : a.id - b.id
+    ));
     setPokemonList(sortedList);
     setIsSortedAlphabetically(!isSortedAlphabetically);
   };
+  
+  const handleNavigate = (pokemonId) => {
+    if (pokemonId >= 1) {
+      navigate(`/pokemon/${pokemonId}`);
+    }
+  };
+  
 
   const handleInputChange = (event) => {
     const value = event.target.value;
@@ -61,7 +65,7 @@ function App() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=33");
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=180");
         const data = await response.json();
 
         const dataPokedexPromises = data.results.map(async (pokemon) => {
@@ -95,11 +99,11 @@ function App() {
   }, []);
 
   return (
-    <>
+    < div className={styles.container}>
       <Header handleSortAlphabetically={handleSortAlphabetically} isSortedAlphabetically={isSortedAlphabetically} handleInputChange={handleInputChange} />
       <Pokelist data={filteredPokemon.length > 0 ? filteredPokemon : pokemonList} colors={pokemonColors} loading={loading}
     />
-=    </>
+    </div>
   );
 }
 

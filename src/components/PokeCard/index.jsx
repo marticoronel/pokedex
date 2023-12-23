@@ -1,9 +1,26 @@
 import React, { useState, useEffect } from "react";
 import styles from './styles.module.css';
-import { useLocation, Link, useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, Link, useParams, useNavigate } from 'react-router-dom';
+import { useSwipeable } from 'react-swipeable';
 
 export default function PokeCard() {
+
+    const config = {
+        delta: 10,                             // min distance(px) before a swipe starts. See Notes     
+        preventScrollOnSwipe: false,           // prevents scroll during swipe (See Details)     
+        trackTouch: true,                      // track touch input     
+        trackMouse: true,                     // track mouse input     
+        rotationAngle: 0,                      // set a rotation angle     
+        swipeDuration: Infinity,               // allowable duration of a swipe (ms). See Notes     
+        touchEventOptions: { passive: true },  // options for touch listeners (See Details)   
+    }
+
+    const handlers = useSwipeable({
+        onSwipedLeft: () => prevPokemonId(),
+        onSwipedRight: () => nextPokemonId(),
+        ...config
+    });
+
     const [pokemon, setPokemon] = useState(null);
     const { id } = useParams();
     const navigate = useNavigate();
@@ -68,6 +85,7 @@ export default function PokeCard() {
         <>
             {pokemon && (
                 <div
+                    {...handlers}
                     className={styles.backgroundCard}
                     style={{
                         backgroundColor: pokemon.color,
@@ -160,7 +178,7 @@ export default function PokeCard() {
                                         className={styles.progressBar}
                                         key={index}
                                         value={stat.value / 100} />
-                                        // accent-color
+                                    // accent-color
                                 ))}
                             </div>
                         </div>
